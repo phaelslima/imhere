@@ -35,7 +35,21 @@ export function Home() {
     setParticipantName('')
   }
 
-  function handleRemoveParticipant(name: string) {}
+  function handleRemoveParticipant(name: string) {
+    Alert.alert('Remover', `Deseja remover o(a) participante '${name}'?`, [
+      {
+        text: 'Sim',
+        onPress: () =>
+          setParticipants((prevState) =>
+            prevState.filter((participant) => participant !== name)
+          ),
+      },
+      {
+        text: 'Não',
+        style: 'cancel',
+      },
+    ])
+  }
 
   return (
     <View style={styles.container}>
